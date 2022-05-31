@@ -1,5 +1,5 @@
 {
-  "name": "react-customform",
+  "name": "@jeongyk92/react-customform",
   "version": "1.0.0",
   "main": "dist/index.js",
   "devDependencies": {
