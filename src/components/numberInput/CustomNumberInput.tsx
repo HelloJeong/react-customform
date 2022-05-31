@@ -1,4 +1,3 @@
-import "./CustomNumberInput.scss";
 import { CSSProperties, memo, useCallback, useState } from "react";
 import UpAngle from "../common/UpAngle";
 import DownAngle from "../common/DownAngle";
