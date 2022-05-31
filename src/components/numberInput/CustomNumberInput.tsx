@@ -1,8 +1,8 @@
 import "./CustomNumberInput.scss";
-import classNames from "classnames";
 import { CSSProperties, memo, useCallback, useState } from "react";
 import UpAngle from "../common/UpAngle";
 import DownAngle from "../common/DownAngle";
+import styled from "styled-components";
 
 interface CustomNumberInputProps {
   value: string;
@@ -48,11 +48,10 @@ const CustomNumberInput: React.FC<CustomNumberInputProps> = ({
   );
 
   return (
-    <div className={classNames("CustomNumber", className)} style={style}>
-      <label className="CustomNumber__Wrap">
-        <input
+    <StyledCustomNumber className={className} style={style}>
+      <StyledCustomNumberWrap>
+        <StyledInput
           type="text"
-          className="CustomNumber__Input"
           value={inputValue}
           onFocus={(e) => setInputValue(e.target.value.split(unit)[0])}
           onKeyDown={(e) => {
@@ -89,17 +88,60 @@ const CustomNumberInput: React.FC<CustomNumberInputProps> = ({
             onUpdateValue(`${val}`);
           }}
         />
-        <div className="CustomNumber__UpDown">
-          <button className="CustomNumber__Up" onClick={() => updateUpDown("up")}>
+        <StyledUpDown>
+          <StyledUpDownButton onClick={() => updateUpDown("up")}>
             <UpAngle />
-          </button>
-          <button className="CustomNumber__Down" onClick={() => updateUpDown("down")}>
+          </StyledUpDownButton>
+          <StyledUpDownButton onClick={() => updateUpDown("down")}>
             <DownAngle />
-          </button>
-        </div>
-      </label>
-    </div>
+          </StyledUpDownButton>
+        </StyledUpDown>
+      </StyledCustomNumberWrap>
+    </StyledCustomNumber>
   );
 };
 
 export default memo(CustomNumberInput);
+
+const StyledCustomNumber = styled.div`
+  width: 100%;
+  height: 100%;
+`;
+
+const StyledCustomNumberWrap = styled.label`
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+const StyledInput = styled.input`
+  width: 90%;
+  padding-left: 10px;
+  height: 100%;
+  outline: none;
+  box-sizing: border-box;
+`;
+
+const StyledUpDown = styled.div`
+  position: absolute;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  right: 5%;
+  font-size: 1rem;
+`;
+
+const StyledUpDownButton = styled.button`
+  height: 50%;
+  font-size: 0.9em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+`;

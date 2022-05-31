@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import CustomNumberInput from "./components/customNumberInput/CustomNumberInput";
+import { CustomNumberInput } from "./components";
 
 function App() {
   const [customFontSize, setCustomFontSize] = useState("24px");
