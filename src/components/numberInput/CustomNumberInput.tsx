@@ -119,7 +119,7 @@ const StyledCustomNumberWrap = styled.label`
 `;
 const StyledInput = styled.input`
   width: 90%;
-  padding-left: 10px;
+  padding-left: 10px !important;
   height: 100%;
   outline: none;
   box-sizing: border-box;
