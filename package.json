@@ -17,7 +17,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "rmdir /S /Q dist && tsc",
-    "patch": "npm patch && npm publish"
+    "patch": "npm version patch && npm publish"
   },
   "eslintConfig": {
     "extends": [
