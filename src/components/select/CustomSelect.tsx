@@ -7,6 +7,7 @@ interface CustomSelectProps {
   divClassName?: string;
   ulClassName?: string;
   divStyle?: CSSProperties;
+  ulStyle?: CSSProperties;
   textAlign?: "left" | "center" | "right";
   selectItem: string;
   selectList: string[];
@@ -17,6 +18,7 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
   divStyle,
   divClassName,
   ulClassName,
+  ulStyle,
   selectItem,
   selectList,
   onSelectItem,
@@ -40,7 +42,16 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
     };
   }, [isOpen]);
 
-  const ItemListClassName = useMemo(() => (isOpen ? `${ulClassName} open` : ulClassName), [ulClassName, isOpen]);
+  const ItemListClassName = useMemo(() => {
+    const className = [];
+    if (ulClassName) {
+      className.push(ulClassName);
+    }
+    if (isOpen) {
+      className.push("open");
+    }
+    return className.join(" ");
+  }, [ulClassName, isOpen]);
 
   return (
     <StyledSelectBox className={divClassName} style={divStyle} onClick={() => setIsOpen(true)}>
@@ -48,7 +59,7 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
         <span style={{ textAlign }}>{selectItem}</span>
         <StyledAngle>{isOpen ? <UpAngle /> : <DownAngle />}</StyledAngle>
       </StyledText>
-      <StyledItemList className={ItemListClassName}>
+      <StyledItemList className={ItemListClassName} style={ulStyle}>
         {selectList.map((sel, idx) => (
           <li key={`sel_${componentId.current}_${idx}`} onClick={() => onSelectItem(sel)}>
             {sel}
