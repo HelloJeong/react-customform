@@ -84,6 +84,7 @@ const StyledSelectBox = styled.div`
   border: none;
 
   cursor: pointer;
+  box-sizing: border-box;
 `;
 
 const StyledText = styled.div`
@@ -93,6 +94,7 @@ const StyledText = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-sizing: border-box;
 
   &:hover {
     color: #7367f0;
@@ -100,6 +102,7 @@ const StyledText = styled.div`
 
   span {
     width: 80%;
+    box-sizing: border-box;
   }
 `;
 
@@ -108,6 +111,7 @@ const StyledAngle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
 `;
 
 const StyledItemList = styled.ul`
@@ -126,6 +130,7 @@ const StyledItemList = styled.ul`
   flex-direction: column;
   transition: 0.5s;
   z-index: -1;
+  box-sizing: border-box;
 
   &.open {
     height: auto;
@@ -142,6 +147,7 @@ const StyledItemList = styled.ul`
     display: flex;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
   }
   li:hover {
     color: #7367f0;

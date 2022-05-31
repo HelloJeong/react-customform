@@ -105,6 +105,7 @@ export default memo(CustomNumberInput);
 const StyledCustomNumber = styled.div`
   width: 100%;
   height: 100%;
+  box-sizing: border-box;
 `;
 
 const StyledCustomNumberWrap = styled.label`
@@ -114,6 +115,7 @@ const StyledCustomNumberWrap = styled.label`
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
 `;
 const StyledInput = styled.input`
   width: 90%;
@@ -131,6 +133,7 @@ const StyledUpDown = styled.div`
   top: 0;
   right: 5%;
   font-size: 1rem;
+  box-sizing: border-box;
 `;
 
 const StyledUpDownButton = styled.button`
@@ -143,4 +146,5 @@ const StyledUpDownButton = styled.button`
   outline: none;
   background: transparent;
   cursor: pointer;
+  box-sizing: border-box;
 `;
